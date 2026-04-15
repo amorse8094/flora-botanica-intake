@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Intake Form — Floral & Botanical Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:        #faf7f0;
+    --paper-cool:   #f3eee3;
+    --beige-soft:   #ece4d1;
+    --beige:        #dfd4ba;
+    --beige-deep:   #bcac8a;
+    --ink:          #1f2419;
+    --ink-soft:     #5a5d4f;
+    --sage:         #4d5a40;
+    --sage-soft:    #8a9579;
+    --dust:         #bcac8a;
+    --hair:         rgba(31,36,25,0.18);
+    --hair-warm:    rgba(180,140,80,0.30);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #d8cfb8; }
+  body {
+    font-family: 'EB Garamond', 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 3rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background:
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-cool) 100%);
+    padding: 5.5rem 5.5rem 4rem;
+    position: relative;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 30px 80px -25px rgba(31,36,25,0.35),
+      0 0 0 1px rgba(31,36,25,0.06);
+  }
+  .sheet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(180,140,80,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(77,90,64,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid var(--hair);
+    position: relative;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--ink);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    padding-left: 0.42em;
+  }
+  .brand .ampersand {
+    font-style: italic;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    margin: 0 .15em;
+    color: var(--sage);
+  }
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--sage);
+    margin-top: .8rem;
+    letter-spacing: 0.04em;
+  }
+  .meta-strip {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.45em;
+    color: var(--ink-soft);
+    margin-top: 1.2rem;
+    padding-left: 0.45em;
+  }
+  .meta-strip .sep { color: var(--dust); margin: 0 .9em; }
+
+  /* DOC LABEL */
+  .doc-label { text-align: center; margin-bottom: 4rem; }
+  .doc-label .kicker {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.55em;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    padding-left: 0.55em;
+  }
+  .doc-label .word {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+  }
+  .doc-label .sub {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: var(--ink-soft);
+    margin-top: .6rem;
+    padding-left: 0.5em;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 3.8rem;
+    padding-bottom: 2.4rem;
+    border-bottom: 0.5px solid var(--hair);
+  }
+  .section:last-of-type { border-bottom: none; }
+  .section-head {
+    text-align: center;
+    margin: 0 -1.5rem 2.4rem;
+    padding: 1.6rem 1.5rem 1.4rem;
+    background: linear-gradient(180deg, var(--beige-soft) 0%, var(--beige) 100%);
+    border-top: 0.5px solid var(--beige-deep);
+    border-bottom: 0.5px solid var(--beige-deep);
+    position: relative;
+  }
+  .section-head::before,
+  .section-head::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+  .section-head::before { top: -3px; }
+  .section-head::after { bottom: -3px; }
+  .section-roman {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+    color: var(--ink-soft);
+    margin-bottom: .8rem;
+    padding-left: 0.6em;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 0.08em;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+
+  /* FIELDS */
+  .field {
+    margin-bottom: 1.5rem;
+  }
+  .field-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--ink-soft);
+    margin-bottom: .55rem;
+    padding-left: 0.28em;
+  }
+  input.line,
+  textarea.line,
+  input.meal-line,
+  input.inline-line {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 0.75px solid var(--beige-deep);
+    background: linear-gradient(180deg, var(--beige-soft) 0%, var(--beige) 100%);
+    font-family: 'EB Garamond', 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    padding: .3rem .55rem;
+    outline: none;
+    resize: none;
+    line-height: 1.6;
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  input.line { height: 2rem; }
+  textarea.line { height: 2rem; }
+  textarea.line.tall { height: 3.6rem; }
+  textarea.line.x-tall { height: 5.4rem; }
+  input.line:focus,
+  textarea.line:focus,
+  input.meal-line:focus,
+  input.inline-line:focus {
+    border-bottom-color: var(--sage);
+    background: #f8f2e2;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 1px rgba(77,90,64,0.12);
+  }
+  textarea.line { font-family: 'EB Garamond', serif; }
+
+  .row {
+    display: flex;
+    gap: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .row .field { flex: 1; margin-bottom: 0; }
+  .row .field.small { flex: 0 0 28%; }
+  .row .field.tiny { flex: 0 0 18%; }
+
+  /* CHECKBOXES */
+  .choices {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 2.1;
+    letter-spacing: 0.01em;
+  }
+  input[type="checkbox"].box {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 0.5px solid var(--sage-soft);
+    background: transparent;
+    margin-right: .45rem;
+    margin-left: .1rem;
+    vertical-align: -2px;
+    cursor: pointer;
+    position: relative;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  input[type="checkbox"].box:hover {
+    border-color: var(--sage);
+  }
+  input[type="checkbox"].box:checked {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+  input[type="checkbox"].box:checked::after {
+    content: "";
+    position: absolute;
+    top: 0.05rem;
+    left: 0.25rem;
+    width: 0.22rem;
+    height: 0.48rem;
+    border: solid var(--paper);
+    border-width: 0 1.2px 1.2px 0;
+    transform: rotate(45deg);
+  }
+  .choices .opt {
+    margin-right: 1.6rem;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+  }
+  input.inline-line {
+    display: inline-block;
+    width: 8rem;
+    height: 1.3rem;
+    margin-left: .3rem;
+    padding: 0 .2rem;
+    vertical-align: -2px;
+  }
+
+  .sub-block {
+    margin-bottom: 1.6rem;
+  }
+  .sub-block-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    color: var(--sage);
+    margin-bottom: .35rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* MEAL ROW */
+  .meals .meal {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: .8rem;
+  }
+  .meals .meal-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--sage);
+    flex: 0 0 5.5rem;
+    letter-spacing: 0.03em;
+  }
+  input.meal-line {
+    flex: 1;
+    height: 1.6rem;
+    width: auto;
+    display: inline-block;
+  }
+
+  /* SYSTEMS REVIEW GRID */
+  .systems {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2.2rem;
+  }
+  .systems .sys {
+    padding-bottom: .8rem;
+    border-bottom: 0.5px dotted var(--hair);
+  }
+  .systems .sys-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--sage);
+    margin-bottom: .45rem;
+    padding-left: 0.3em;
+  }
+  .systems .sys-opts {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  /* ATTESTATION */
+  .attestation {
+    margin-top: 2rem;
+    padding: 2.4rem 2rem;
+    border: 0.5px solid var(--beige-deep);
+    background: linear-gradient(180deg, var(--beige-soft) 0%, var(--beige) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .attestation p {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: .6rem;
+    font-style: italic;
+    text-align: center;
+  }
+  .attestation .sig-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .attestation .sig-row .field { flex: 1; margin: 0; }
+  .attestation .sig-row .field.date { flex: 0 0 30%; }
+
+  /* COLOPHON */
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 2.4rem;
+    text-align: center;
+    border-top: 0.5px solid var(--hair);
+    position: relative;
+  }
+  .colophon::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+  .colophon .signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    padding-left: 0.42em;
+    margin-bottom: .25rem;
+  }
+  .colophon .role {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+  }
+  .colophon .credentials {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.65em;
+    color: var(--sage-soft);
+    margin-top: 1.6rem;
+    padding-left: 0.65em;
+  }
+
+  /* EDITABLE TEXT */
+  [contenteditable="true"] {
+    outline: none;
+    cursor: text;
+    border-radius: 2px;
+    transition: background .15s ease, box-shadow .15s ease;
+  }
+  [contenteditable="true"]:hover {
+    background: rgba(201,183,143,0.22);
+  }
+  [contenteditable="true"]:focus {
+    background: rgba(255,248,230,0.75);
+    box-shadow: 0 0 0 1px rgba(77,90,64,0.28);
+  }
+  .opt[contenteditable="true"]:hover,
+  .opt[contenteditable="true"]:focus {
+    padding-right: .2rem;
+  }
+
+  /* ACTIONS */
+  .actions {
+    max-width: 760px;
+    margin: 0 auto 1.4rem;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: .6rem;
+  }
+  .actions button {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--ink);
+    background: rgba(244,237,224,0.6);
+    border: 0.5px solid var(--sage-soft);
+    padding: .6rem 1.2rem .55rem;
+    padding-left: 1.55rem;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .actions button:hover {
+    background: var(--sage);
+    color: var(--paper);
+    border-color: var(--sage);
+  }
+  .saved-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--sage-soft);
+    align-self: center;
+    margin-right: auto;
+    padding-left: .5rem;
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+  .saved-note.show { opacity: 1; }
+
+  @media print {
+    @page { margin: 0.4in; size: auto; }
+
+    /* Force every color to render at full fidelity */
+    html, body, * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    /* Match the on-screen HTML appearance exactly */
+    html, body {
+      background: #e0d6bf !important;
+    }
+    body { padding: 0; }
+
+    .sheet {
+      box-shadow: none !important;
+      max-width: 100%;
+      padding: 2.5rem 2.8rem 2rem !important;
+      /* Keep identical gradient to screen view */
+      background:
+        linear-gradient(180deg, #f4ede0 0%, #ebe2cf 100%) !important;
+    }
+
+    .section { page-break-inside: avoid; }
+
+    /* Ensure input/textarea text prints in ink color */
+    input.line, textarea.line, input.meal-line, input.inline-line {
+      color: #1f2419 !important;
+      -webkit-text-fill-color: #1f2419 !important;
+    }
+
+    input[type="checkbox"].box:checked {
+      background: #4d5a40 !important;
+      border-color: #4d5a40 !important;
+    }
+
+    .actions { display: none !important; }
+
+    [contenteditable="true"]:hover,
+    [contenteditable="true"]:focus {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .sheet { padding: 3rem 1.6rem; }
+    .row { flex-direction: column; gap: 1.2rem; }
+    .systems { grid-template-columns: 1fr; }
+    .attestation .sig-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="actions">
+  <span class="saved-note" id="savedNote">saved</span>
+  <button type="button" onclick="window.print()">Print / Save PDF</button>
+  <button type="button" onclick="resetText()">Reset Wording</button>
+  <button type="button" onclick="clearForm()">Clear Entries</button>
+</div>
+
+<form id="intakeForm" class="sheet">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <h1 class="brand">F L O R A L <span class="ampersand">&amp;</span> B O T A N I C A L M E D I C I N E</h1>
+    <p class="tagline">apothecary, microscopy practice &amp; health consultations</p>
+    <p class="meta-strip">
+      RUMFORD, RHODE ISLAND
+      <span class="sep">·</span>
+      FLORALBOTANICALMEDICINE · COM
+    </p>
+  </header>
+
+  <!-- DOC LABEL -->
+  <div class="doc-label">
+    <p class="kicker">FLORA BOTANICA PMA</p>
+    <p class="word">The Clinical Intake</p>
+    <p class="sub">HERBALIST CONSULTATION · NEW CLIENT</p>
+  </div>
+
+  <!-- SECTION I — CLIENT -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION I</p>
+      <h2 class="section-title">Client Information</h2>
+      <p class="section-sub">Begin with the essentials.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Full Name</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <p class="field-label">Date of Birth</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field tiny">
+        <p class="field-label">Age</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field small">
+        <p class="field-label">Pronouns</p>
+        <input type="text" class="line" />
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Address</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="field">
+      <p class="field-label">City · State · Zip</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <p class="field-label">Phone</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field">
+        <p class="field-label">Email</p>
+        <input type="text" class="line" />
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Emergency Contact — Name &amp; Phone</p>
+      <input type="text" class="line" />
+    </div>
+  </section>
+
+  <!-- SECTION II — PRIMARY CONCERNS -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION II</p>
+      <h2 class="section-title">Primary Concerns</h2>
+      <p class="section-sub">What has brought you to the clinic.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">What brings you in today?</p>
+      <textarea class="line x-tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Duration</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Days</span>
+        <span class="opt"><input type="checkbox" class="box" />Weeks</span>
+        <span class="opt"><input type="checkbox" class="box" />Months</span>
+        <span class="opt"><input type="checkbox" class="box" />Years</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Diagnosis — if any</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Goals for working with an herbalist</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION III — HEALTH HISTORY -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION III</p>
+      <h2 class="section-title">Health History</h2>
+      <p class="section-sub">A portrait of the terrain.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Current Medical Conditions</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Past Illnesses · Surgeries · Hospitalizations</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Family Health History</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Allergies — foods, medications, plants</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION IV — MEDICATIONS -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION IV</p>
+      <h2 class="section-title">Medications &amp; Supplements</h2>
+      <p class="section-sub">What the body is currently receiving.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Prescription Medications — name, dose, frequency</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Over-the-Counter Medications</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Vitamins, Herbs &amp; Supplements</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION V — LIFESTYLE -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION V</p>
+      <h2 class="section-title">Lifestyle &amp; Daily Habits</h2>
+      <p class="section-sub">The rhythm of your days.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Occupation</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="row">
+      <div class="field small">
+        <p class="field-label">Stress Level — 1 to 10</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field small">
+        <p class="field-label">Sleep — hours per night</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field">
+        <p class="field-label">Sleep Quality</p>
+        <div class="choices">
+          <span class="opt"><input type="checkbox" class="box" />Good</span>
+          <span class="opt"><input type="checkbox" class="box" />Fair</span>
+          <span class="opt"><input type="checkbox" class="box" />Poor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Exercise — type &amp; frequency</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="sub-block">
+      <p class="sub-block-label">A day on the plate</p>
+      <div class="meals">
+        <div class="meal"><span class="meal-name">Breakfast</span><input type="text" class="meal-line" /></div>
+        <div class="meal"><span class="meal-name">Lunch</span><input type="text" class="meal-line" /></div>
+        <div class="meal"><span class="meal-name">Dinner</span><input type="text" class="meal-line" /></div>
+        <div class="meal"><span class="meal-name">Snacks</span><input type="text" class="meal-line" /></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <p class="field-label">Water Intake</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field">
+        <p class="field-label">Caffeine &amp; Alcohol Use</p>
+        <input type="text" class="line" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION VI — DIGESTIVE -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION VI</p>
+      <h2 class="section-title">Digestive Health</h2>
+      <p class="section-sub">The gut as the gate.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Appetite</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Low</span>
+        <span class="opt"><input type="checkbox" class="box" />Moderate</span>
+        <span class="opt"><input type="checkbox" class="box" />High</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Bowel Movements</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Daily</span>
+        <span class="opt"><input type="checkbox" class="box" />Irregular</span>
+        <span class="opt"><input type="checkbox" class="box" />Other<input type="text" class="inline-line" /></span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Symptoms</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Bloating</span>
+        <span class="opt"><input type="checkbox" class="box" />Gas</span>
+        <span class="opt"><input type="checkbox" class="box" />Belching</span>
+        <span class="opt"><input type="checkbox" class="box" />Constipation</span>
+        <span class="opt"><input type="checkbox" class="box" />Diarrhea</span>
+        <span class="opt"><input type="checkbox" class="box" />Heartburn</span>
+        <span class="opt"><input type="checkbox" class="box" />Reflux / GERD</span>
+        <span class="opt"><input type="checkbox" class="box" />Nausea</span>
+        <span class="opt"><input type="checkbox" class="box" />Vomiting</span>
+        <span class="opt"><input type="checkbox" class="box" />Abdominal pain</span>
+        <span class="opt"><input type="checkbox" class="box" />Cramping</span>
+        <span class="opt"><input type="checkbox" class="box" />Food sensitivities</span>
+        <span class="opt"><input type="checkbox" class="box" />Undigested food in stool</span>
+        <span class="opt"><input type="checkbox" class="box" />Mucus in stool</span>
+        <span class="opt"><input type="checkbox" class="box" />Blood in stool</span>
+        <span class="opt"><input type="checkbox" class="box" />Loss of appetite</span>
+        <span class="opt"><input type="checkbox" class="box" />Sugar cravings</span>
+        <span class="opt"><input type="checkbox" class="box" />History of IBS</span>
+        <span class="opt"><input type="checkbox" class="box" />History of IBD</span>
+        <span class="opt"><input type="checkbox" class="box" />SIBO concerns</span>
+        <span class="opt"><input type="checkbox" class="box" />Candida concerns</span>
+        <span class="opt"><input type="checkbox" class="box" />Parasite concerns</span>
+        <span class="opt"><input type="checkbox" class="box" />H. pylori</span>
+        <span class="opt"><input type="checkbox" class="box" />Gallbladder issues</span>
+        <span class="opt"><input type="checkbox" class="box" />Liver concerns</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Additional notes</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION VII — DENTAL -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION VII</p>
+      <h2 class="section-title">Dental Health &amp; Root Canals</h2>
+      <p class="section-sub">The mouth, often overlooked.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">How would you describe your dental health?</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Excellent</span>
+        <span class="opt"><input type="checkbox" class="box" />Good</span>
+        <span class="opt"><input type="checkbox" class="box" />Fair</span>
+        <span class="opt"><input type="checkbox" class="box" />Poor</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Current dental issues</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Cavities</span>
+        <span class="opt"><input type="checkbox" class="box" />Gum disease</span>
+        <span class="opt"><input type="checkbox" class="box" />Tooth pain</span>
+        <span class="opt"><input type="checkbox" class="box" />Sensitivity</span>
+        <span class="opt"><input type="checkbox" class="box" />Other<input type="text" class="inline-line" /></span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">History of dental procedures — check all that apply</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Fillings</span>
+        <span class="opt"><input type="checkbox" class="box" />Crowns</span>
+        <span class="opt"><input type="checkbox" class="box" />Extractions</span>
+        <span class="opt"><input type="checkbox" class="box" />Implants</span>
+        <span class="opt"><input type="checkbox" class="box" />Root Canals</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">If you have had root canals, please specify tooth &amp; approximate date</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Symptoms experienced after dental procedures</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Chronic fatigue</span>
+        <span class="opt"><input type="checkbox" class="box" />Jaw pain</span>
+        <span class="opt"><input type="checkbox" class="box" />Sinus issues</span>
+        <span class="opt"><input type="checkbox" class="box" />Headaches</span>
+        <span class="opt"><input type="checkbox" class="box" />None</span>
+        <span class="opt"><input type="checkbox" class="box" />Other<input type="text" class="inline-line" /></span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Do you have regular dental care?</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Yes</span>
+        <span class="opt"><input type="checkbox" class="box" />No</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Additional notes</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION VIII — REPRODUCTIVE -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION VIII</p>
+      <h2 class="section-title">Reproductive Health</h2>
+      <p class="section-sub">If applicable.</p>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <p class="field-label">Menstrual Cycle</p>
+        <div class="choices">
+          <span class="opt"><input type="checkbox" class="box" />Regular</span>
+          <span class="opt"><input type="checkbox" class="box" />Irregular</span>
+        </div>
+      </div>
+      <div class="field">
+        <p class="field-label">Last Menstrual Period</p>
+        <input type="text" class="line" />
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Symptoms — PMS, pain, etc.</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Pregnancy &amp; Birth History</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION IX — MENTAL -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION IX</p>
+      <h2 class="section-title">Mental &amp; Emotional Health</h2>
+      <p class="section-sub">The inner weather.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Symptoms you are currently experiencing</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Anxiety</span>
+        <span class="opt"><input type="checkbox" class="box" />Depression</span>
+        <span class="opt"><input type="checkbox" class="box" />Low mood</span>
+        <span class="opt"><input type="checkbox" class="box" />Mood swings</span>
+        <span class="opt"><input type="checkbox" class="box" />Irritability</span>
+        <span class="opt"><input type="checkbox" class="box" />Anger outbursts</span>
+        <span class="opt"><input type="checkbox" class="box" />Panic attacks</span>
+        <span class="opt"><input type="checkbox" class="box" />Racing thoughts</span>
+        <span class="opt"><input type="checkbox" class="box" />Overwhelm</span>
+        <span class="opt"><input type="checkbox" class="box" />Burnout</span>
+        <span class="opt"><input type="checkbox" class="box" />Grief</span>
+        <span class="opt"><input type="checkbox" class="box" />Loneliness</span>
+        <span class="opt"><input type="checkbox" class="box" />Emotional numbness</span>
+        <span class="opt"><input type="checkbox" class="box" />Low motivation</span>
+        <span class="opt"><input type="checkbox" class="box" />Brain fog</span>
+        <span class="opt"><input type="checkbox" class="box" />Difficulty focusing</span>
+        <span class="opt"><input type="checkbox" class="box" />Memory issues</span>
+        <span class="opt"><input type="checkbox" class="box" />Poor sleep quality</span>
+        <span class="opt"><input type="checkbox" class="box" />Nightmares</span>
+        <span class="opt"><input type="checkbox" class="box" />Social withdrawal</span>
+        <span class="opt"><input type="checkbox" class="box" />Obsessive thoughts</span>
+        <span class="opt"><input type="checkbox" class="box" />Compulsive behaviors</span>
+        <span class="opt"><input type="checkbox" class="box" />History of trauma</span>
+        <span class="opt"><input type="checkbox" class="box" />PTSD</span>
+        <span class="opt"><input type="checkbox" class="box" />ADHD tendencies</span>
+        <span class="opt"><input type="checkbox" class="box" />Addictive patterns</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Current Mood</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">History of Anxiety, Depression or Other</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Emotional Stressors</p>
+      <textarea class="line tall"></textarea>
+    </div>
+
+    <div class="field">
+      <p class="field-label">What supports you most when you feel off?</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION X — BODY SYSTEMS -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION X</p>
+      <h2 class="section-title">Body Systems Review</h2>
+      <p class="section-sub">A gentle survey, head to foot.</p>
+    </div>
+
+    <div class="systems">
+      <div class="sys">
+        <p class="sys-name">General</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Fatigue</span>
+          <span class="opt"><input type="checkbox" class="box" />Low energy</span>
+          <span class="opt"><input type="checkbox" class="box" />Fever</span>
+          <span class="opt"><input type="checkbox" class="box" />Chills</span>
+          <span class="opt"><input type="checkbox" class="box" />Night sweats</span>
+          <span class="opt"><input type="checkbox" class="box" />Weight gain</span>
+          <span class="opt"><input type="checkbox" class="box" />Weight loss</span>
+          <span class="opt"><input type="checkbox" class="box" />Cold intolerance</span>
+          <span class="opt"><input type="checkbox" class="box" />Heat intolerance</span>
+          <span class="opt"><input type="checkbox" class="box" />Unexplained thirst</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Skin, Hair &amp; Nails</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Rashes</span>
+          <span class="opt"><input type="checkbox" class="box" />Dryness</span>
+          <span class="opt"><input type="checkbox" class="box" />Acne</span>
+          <span class="opt"><input type="checkbox" class="box" />Eczema</span>
+          <span class="opt"><input type="checkbox" class="box" />Psoriasis</span>
+          <span class="opt"><input type="checkbox" class="box" />Itching</span>
+          <span class="opt"><input type="checkbox" class="box" />Hives</span>
+          <span class="opt"><input type="checkbox" class="box" />Easy bruising</span>
+          <span class="opt"><input type="checkbox" class="box" />Slow wound healing</span>
+          <span class="opt"><input type="checkbox" class="box" />Hair loss / thinning</span>
+          <span class="opt"><input type="checkbox" class="box" />Brittle nails</span>
+          <span class="opt"><input type="checkbox" class="box" />Ridged nails</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Respiratory</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Cough</span>
+          <span class="opt"><input type="checkbox" class="box" />Asthma</span>
+          <span class="opt"><input type="checkbox" class="box" />Shortness of breath</span>
+          <span class="opt"><input type="checkbox" class="box" />Wheezing</span>
+          <span class="opt"><input type="checkbox" class="box" />Congestion</span>
+          <span class="opt"><input type="checkbox" class="box" />Chronic sinusitis</span>
+          <span class="opt"><input type="checkbox" class="box" />Post-nasal drip</span>
+          <span class="opt"><input type="checkbox" class="box" />Sore throat</span>
+          <span class="opt"><input type="checkbox" class="box" />Seasonal allergies</span>
+          <span class="opt"><input type="checkbox" class="box" />Mold sensitivity</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Cardiovascular</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />High blood pressure</span>
+          <span class="opt"><input type="checkbox" class="box" />Low blood pressure</span>
+          <span class="opt"><input type="checkbox" class="box" />Palpitations</span>
+          <span class="opt"><input type="checkbox" class="box" />Chest pain / tightness</span>
+          <span class="opt"><input type="checkbox" class="box" />Cold hands / feet</span>
+          <span class="opt"><input type="checkbox" class="box" />Swelling / edema</span>
+          <span class="opt"><input type="checkbox" class="box" />Varicose veins</span>
+          <span class="opt"><input type="checkbox" class="box" />High cholesterol</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Musculoskeletal</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Joint pain</span>
+          <span class="opt"><input type="checkbox" class="box" />Joint swelling</span>
+          <span class="opt"><input type="checkbox" class="box" />Muscle tension</span>
+          <span class="opt"><input type="checkbox" class="box" />Muscle weakness</span>
+          <span class="opt"><input type="checkbox" class="box" />Cramps / spasms</span>
+          <span class="opt"><input type="checkbox" class="box" />Back pain</span>
+          <span class="opt"><input type="checkbox" class="box" />Neck pain</span>
+          <span class="opt"><input type="checkbox" class="box" />Stiffness</span>
+          <span class="opt"><input type="checkbox" class="box" />Old injury flare-ups</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Nervous System</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Headaches</span>
+          <span class="opt"><input type="checkbox" class="box" />Migraines</span>
+          <span class="opt"><input type="checkbox" class="box" />Dizziness</span>
+          <span class="opt"><input type="checkbox" class="box" />Vertigo</span>
+          <span class="opt"><input type="checkbox" class="box" />Insomnia</span>
+          <span class="opt"><input type="checkbox" class="box" />Numbness / tingling</span>
+          <span class="opt"><input type="checkbox" class="box" />Tremors</span>
+          <span class="opt"><input type="checkbox" class="box" />Memory issues</span>
+          <span class="opt"><input type="checkbox" class="box" />Brain fog</span>
+          <span class="opt"><input type="checkbox" class="box" />Tinnitus</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Digestive</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Bloating</span>
+          <span class="opt"><input type="checkbox" class="box" />Gas</span>
+          <span class="opt"><input type="checkbox" class="box" />Reflux / GERD</span>
+          <span class="opt"><input type="checkbox" class="box" />Nausea</span>
+          <span class="opt"><input type="checkbox" class="box" />Constipation</span>
+          <span class="opt"><input type="checkbox" class="box" />Diarrhea</span>
+          <span class="opt"><input type="checkbox" class="box" />Cramping</span>
+          <span class="opt"><input type="checkbox" class="box" />Food sensitivities</span>
+          <span class="opt"><input type="checkbox" class="box" />Liver / gallbladder issues</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Urinary</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Frequency</span>
+          <span class="opt"><input type="checkbox" class="box" />Urgency</span>
+          <span class="opt"><input type="checkbox" class="box" />Burning / pain</span>
+          <span class="opt"><input type="checkbox" class="box" />Recurrent UTIs</span>
+          <span class="opt"><input type="checkbox" class="box" />Incontinence</span>
+          <span class="opt"><input type="checkbox" class="box" />Kidney stones</span>
+          <span class="opt"><input type="checkbox" class="box" />Waking to urinate</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Immune &amp; Lymphatic</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Frequent illness</span>
+          <span class="opt"><input type="checkbox" class="box" />Slow recovery</span>
+          <span class="opt"><input type="checkbox" class="box" />Swollen glands</span>
+          <span class="opt"><input type="checkbox" class="box" />Food allergies</span>
+          <span class="opt"><input type="checkbox" class="box" />Environmental allergies</span>
+          <span class="opt"><input type="checkbox" class="box" />Autoimmune condition</span>
+          <span class="opt"><input type="checkbox" class="box" />Chronic inflammation</span>
+          <span class="opt"><input type="checkbox" class="box" />Lyme / tick-borne</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Endocrine &amp; Hormonal</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Thyroid imbalance</span>
+          <span class="opt"><input type="checkbox" class="box" />Blood sugar swings</span>
+          <span class="opt"><input type="checkbox" class="box" />Energy crashes</span>
+          <span class="opt"><input type="checkbox" class="box" />Adrenal fatigue</span>
+          <span class="opt"><input type="checkbox" class="box" />Low libido</span>
+          <span class="opt"><input type="checkbox" class="box" />Hot flashes</span>
+          <span class="opt"><input type="checkbox" class="box" />Hormonal acne</span>
+          <span class="opt"><input type="checkbox" class="box" />PCOS</span>
+          <span class="opt"><input type="checkbox" class="box" />Endometriosis</span>
+          <span class="opt"><input type="checkbox" class="box" />Infertility concerns</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Eyes, Ears, Nose &amp; Throat</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Dry eyes</span>
+          <span class="opt"><input type="checkbox" class="box" />Blurred vision</span>
+          <span class="opt"><input type="checkbox" class="box" />Floaters</span>
+          <span class="opt"><input type="checkbox" class="box" />Ear pain / pressure</span>
+          <span class="opt"><input type="checkbox" class="box" />Hearing issues</span>
+          <span class="opt"><input type="checkbox" class="box" />Nosebleeds</span>
+          <span class="opt"><input type="checkbox" class="box" />Loss of smell / taste</span>
+          <span class="opt"><input type="checkbox" class="box" />Mouth ulcers</span>
+          <span class="opt"><input type="checkbox" class="box" />Bleeding gums</span>
+        </div>
+      </div>
+
+      <div class="sys">
+        <p class="sys-name">Mental &amp; Emotional</p>
+        <div class="sys-opts choices">
+          <span class="opt"><input type="checkbox" class="box" />Anxiety</span>
+          <span class="opt"><input type="checkbox" class="box" />Depression</span>
+          <span class="opt"><input type="checkbox" class="box" />Mood swings</span>
+          <span class="opt"><input type="checkbox" class="box" />Irritability</span>
+          <span class="opt"><input type="checkbox" class="box" />Panic attacks</span>
+          <span class="opt"><input type="checkbox" class="box" />Overwhelm</span>
+          <span class="opt"><input type="checkbox" class="box" />Brain fog</span>
+          <span class="opt"><input type="checkbox" class="box" />Low motivation</span>
+          <span class="opt"><input type="checkbox" class="box" />Racing thoughts</span>
+          <span class="opt"><input type="checkbox" class="box" />Emotional numbness</span>
+          <span class="opt"><input type="checkbox" class="box" />Grief</span>
+          <span class="opt"><input type="checkbox" class="box" />Trauma history</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field" style="margin-top: 2rem;">
+      <p class="field-label">Anything else you'd like to share</p>
+      <textarea class="line tall"></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION XI — HERBAL HISTORY -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION XI</p>
+      <h2 class="section-title">Herbal &amp; Alternative Medicine</h2>
+      <p class="section-sub">Your history with the plants.</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Have you used herbal medicine before?</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Yes</span>
+        <span class="opt"><input type="checkbox" class="box" />No</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Have you worked with an herbalist or naturopath before?</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Yes</span>
+        <span class="opt"><input type="checkbox" class="box" />No</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION XII — REFERRAL -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-roman">SECTION XII</p>
+      <h2 class="section-title">How You Found Us</h2>
+      <p class="section-sub">Where did you hear about Flora Botanica?</p>
+    </div>
+
+    <div class="field">
+      <p class="field-label">Please select all that apply</p>
+      <div class="choices">
+        <span class="opt"><input type="checkbox" class="box" />Instagram</span>
+        <span class="opt"><input type="checkbox" class="box" />Natural Awakenings</span>
+        <span class="opt"><input type="checkbox" class="box" />Friend or family</span>
+        <span class="opt"><input type="checkbox" class="box" />Word of mouth</span>
+        <span class="opt"><input type="checkbox" class="box" />Google &amp; search</span>
+        <span class="opt"><input type="checkbox" class="box" />Podcast</span>
+        <span class="opt"><input type="checkbox" class="box" />Event or workshop</span>
+        <span class="opt"><input type="checkbox" class="box" />Another practitioner</span>
+        <span class="opt"><input type="checkbox" class="box" />Returning client</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="field-label">If a specific person referred you, who?</p>
+      <input type="text" class="line" />
+    </div>
+
+    <div class="field">
+      <p class="field-label"><input type="checkbox" class="box" />Other — please share</p>
+      <input type="text" class="line" />
+    </div>
+  </section>
+
+  <!-- ATTESTATION -->
+  <div class="attestation">
+    <p>I agree to share accurate health information to the best of my knowledge.</p>
+    <p>I understand that results vary and no guarantees are made.</p>
+    <div class="sig-row">
+      <div class="field">
+        <p class="field-label">Signature</p>
+        <input type="text" class="line" />
+      </div>
+      <div class="field date">
+        <p class="field-label">Date</p>
+        <input type="text" class="line" />
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <p class="signature">FLORA BOTANICA PMA</p>
+    <p class="role">Rooted in plant wisdom, guided by holistic care.</p>
+    <p class="credentials">MICROSCOPY · HERBALISM · APOTHECARY · WELLNESS</p>
+  </footer>
+
+</form>
+
+<script>
+(function () {
+  const form = document.getElementById('intakeForm');
+  const note = document.getElementById('savedNote');
+  const STORAGE_KEY = 'floraBotanicaIntakeForm';
+  const TEXT_KEY = 'floraBotanicaIntakeForm_text';
+
+  // --- FORM FIELDS ---
+  const fields = form.querySelectorAll('input, textarea');
+  fields.forEach((el, i) => { if (!el.name) el.name = 'f' + i; });
+
+  // --- EDITABLE TEXT ELEMENTS ---
+  const editableSelectors = [
+    '.brand', '.tagline', '.meta-strip',
+    '.doc-label .kicker', '.doc-label .word', '.doc-label .sub',
+    '.section-roman', '.section-title', '.section-sub',
+    '.field-label', '.sub-block-label',
+    '.meal-name', '.sys-name',
+    '.opt',
+    '.attestation p',
+    '.colophon .signature', '.colophon .role', '.colophon .credentials'
+  ];
+  const editables = document.querySelectorAll(editableSelectors.join(','));
+  const originals = {};
+  editables.forEach((el, i) => {
+    const tid = 't' + i;
+    el.dataset.tid = tid;
+    originals[tid] = el.innerHTML;
+    el.setAttribute('contenteditable', 'true');
+    el.setAttribute('spellcheck', 'true');
+    // Keep short labels on one line
+    const isMulti = el.matches('.attestation p, .section-sub, .tagline');
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey && !isMulti) {
+        e.preventDefault();
+      }
+    });
+    // Paste as plain text so formatting doesn't leak in
+    el.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+      document.execCommand('insertText', false, text);
+    });
+  });
+
+  // Click the label text to toggle the checkbox — but only when not actively editing
+  form.querySelectorAll('.opt').forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (document.activeElement === opt) return; // editing, don't toggle
+      const cb = opt.querySelector('input[type="checkbox"]');
+      if (cb) { cb.checked = !cb.checked; save(); }
+    });
+  });
+
+  // --- LOAD SAVED DATA ---
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const data = JSON.parse(raw);
+      fields.forEach(el => {
+        if (!(el.name in data)) return;
+        if (el.type === 'checkbox') el.checked = !!data[el.name];
+        else el.value = data[el.name];
+      });
+    }
+  } catch (e) {}
+  try {
+    const textRaw = localStorage.getItem(TEXT_KEY);
+    if (textRaw) {
+      const textData = JSON.parse(textRaw);
+      editables.forEach(el => {
+        const tid = el.dataset.tid;
+        if (tid in textData) el.innerHTML = textData[tid];
+      });
+    }
+  } catch (e) {}
+
+  // --- AUTOSAVE ---
+  let timer;
+  function save() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const data = {};
+      fields.forEach(el => {
+        data[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+      });
+      const textData = {};
+      editables.forEach(el => { textData[el.dataset.tid] = el.innerHTML; });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      localStorage.setItem(TEXT_KEY, JSON.stringify(textData));
+      note.classList.add('show');
+      setTimeout(() => note.classList.remove('show'), 900);
+    }, 250);
+  }
+  form.addEventListener('input', save);
+  form.addEventListener('change', save);
+  document.addEventListener('input', (e) => {
+    if (e.target.hasAttribute && e.target.hasAttribute('contenteditable')) save();
+  });
+
+  window.clearForm = function () {
+    if (!confirm('Clear all typed entries and checkboxes? Wording stays. This cannot be undone.')) return;
+    fields.forEach(el => {
+      if (el.type === 'checkbox') el.checked = false;
+      else el.value = '';
+    });
+    localStorage.removeItem(STORAGE_KEY);
+  };
+
+  window.resetText = function () {
+    if (!confirm('Restore all labels, titles and section wording to the original? Your typed entries will be kept.')) return;
+    editables.forEach(el => { el.innerHTML = originals[el.dataset.tid]; });
+    localStorage.removeItem(TEXT_KEY);
+  };
+})();
+</script>
+
+</body>
+</html>
