@@ -1361,6 +1361,33 @@
 
     const payload = buildPayload();
 
+    const showSuccess = () => {
+      document.querySelector('.sheet').innerHTML = `
+        <div style="padding:6rem 3rem;text-align:center">
+          <p style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:#7a756a;margin-bottom:1.5rem">Received</p>
+          <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.6rem;color:#1f2419;line-height:1.2">Thank you for your <em style="color:#4d5a40">intake</em>.</h1>
+          <p style="max-width:500px;margin:2rem auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#4d5a40;line-height:1.6">
+            Your form has been sent. We will be in touch shortly to schedule your consultation.
+          </p>
+        </div>`;
+      window.scrollTo(0,0);
+    };
+
+    const mailtoFallback = () => {
+      let body = 'Clinical Intake — Flora Botanica\n\n';
+      for (const [k, v] of Object.entries(payload)) {
+        if (k.startsWith('_')) continue;
+        body += k + ':\n  ' + v + '\n\n';
+      }
+      const href = 'mailto:' + RECIPIENT + '?subject=' + encodeURIComponent('New Clinical Intake — Flora Botanica') + '&body=' + encodeURIComponent(body);
+      window.location.href = href;
+      setTimeout(() => {
+        status.style.color = '#4d5a40';
+        status.innerHTML = 'Opened your email app. If nothing opened, email <strong>' + RECIPIENT + '</strong> directly.';
+      }, 800);
+    };
+
+    let httpOk = false;
     try {
       const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(RECIPIENT), {
         method: 'POST',
@@ -1368,25 +1395,20 @@
         body: JSON.stringify(payload),
       });
       const result = await res.json().catch(() => ({}));
-      if (res.ok && (result.success === 'true' || result.success === true)) {
-        document.querySelector('.sheet').innerHTML = `
-          <div style="padding:6rem 3rem;text-align:center">
-            <p style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:#7a756a;margin-bottom:1.5rem">Received</p>
-            <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.6rem;color:#1f2419;line-height:1.2">Thank you for your <em style="color:#4d5a40">intake</em>.</h1>
-            <p style="max-width:500px;margin:2rem auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#4d5a40;line-height:1.6">
-              Your form has been sent. We will be in touch shortly to schedule your consultation.
-            </p>
-          </div>`;
-        window.scrollTo(0,0);
-      } else {
-        throw new Error(result.message || 'Submission failed');
-      }
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Submit Intake Form';
-      status.style.color = '#b85c4e';
-      status.textContent = 'Submission failed — please try again or email ' + RECIPIENT;
-      console.error(err);
+      if (res.ok && (result.success === 'true' || result.success === true)) httpOk = true;
+    } catch (e) { /* fall through */ }
+
+    if (httpOk) {
+      showSuccess();
+    } else {
+      // Always fall back to mailto — works offline, no third-party service, no activation.
+      status.style.color = '#4d5a40';
+      status.innerHTML = 'Opening your email app to send — if nothing opens, please email <strong>' + RECIPIENT + '</strong> directly.';
+      mailtoFallback();
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = 'Submit Intake Form';
+      }, 2000);
     }
   });
 })();
