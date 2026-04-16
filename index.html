@@ -535,7 +535,7 @@
       border-color: #4d5a40 !important;
     }
 
-    .actions { display: none !important; }
+    .actions, .submit-wrap { display: none !important; }
 
     [contenteditable="true"]:hover,
     [contenteditable="true"]:focus {
@@ -1287,6 +1287,17 @@
     </div>
   </div>
 
+  <!-- SUBMIT -->
+  <div class="submit-wrap" style="text-align:center;padding:3rem 0 1.5rem;border-top:1px solid rgba(31,36,25,.18);margin-top:2rem">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#4d5a40;margin-bottom:1.5rem">
+      When you're ready, send your intake through.
+    </p>
+    <button type="submit" id="submitBtn" style="font-family:'Inter',sans-serif;font-size:0.75rem;letter-spacing:0.35em;text-transform:uppercase;padding:1.1rem 2.8rem;background:#1f2419;color:#f4ede0;border:1px solid #1f2419;cursor:pointer;transition:all .3s">
+      Submit Intake Form
+    </button>
+    <p id="submitStatus" style="margin-top:1.2rem;font-family:'Inter',sans-serif;font-size:0.75rem;letter-spacing:0.12em;color:#4d5a40;min-height:1.2em"></p>
+  </div>
+
   <!-- COLOPHON -->
   <footer class="colophon">
     <p class="signature">FLORA BOTANICA PMA</p>
@@ -1295,6 +1306,91 @@
   </footer>
 
 </form>
+
+<script>
+(function () {
+  const form = document.getElementById('intakeForm');
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('submitStatus');
+  const RECIPIENT = 'hello@floralbotanicalmedicine.com';
+
+  function buildPayload() {
+    const data = {
+      _subject: 'New Clinical Intake — Flora Botanica',
+      _template: 'table',
+      _captcha: 'false',
+    };
+    form.querySelectorAll('section.section').forEach(sec => {
+      const secTitle = (sec.querySelector('.section-title')?.textContent || '').trim();
+      sec.querySelectorAll('.field').forEach(field => {
+        const labelEl = field.querySelector('.field-label');
+        const label = labelEl ? labelEl.textContent.trim().replace(/\s+/g,' ') : 'Field';
+        const values = [];
+        field.querySelectorAll('input, textarea').forEach(inp => {
+          if (inp.type === 'checkbox') {
+            if (inp.checked) {
+              const wrap = inp.closest('.opt, .field-label, label');
+              values.push(wrap ? wrap.textContent.trim().replace(/\s+/g,' ') : 'checked');
+            }
+          } else if (inp.value && inp.value.trim()) {
+            values.push(inp.value.trim());
+          }
+        });
+        if (values.length) {
+          const key = secTitle ? (secTitle + ' — ' + label) : label;
+          data[key] = values.join(' · ');
+        }
+      });
+    });
+    // attestation sig row
+    const sig = form.querySelector('.attestation .sig-row');
+    if (sig) {
+      const inputs = sig.querySelectorAll('input');
+      if (inputs[0] && inputs[0].value) data['Signature'] = inputs[0].value;
+      if (inputs[1] && inputs[1].value) data['Date'] = inputs[1].value;
+    }
+    return data;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.style.color = '#4d5a40';
+
+    const payload = buildPayload();
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(RECIPIENT), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (res.ok && (result.success === 'true' || result.success === true)) {
+        document.querySelector('.sheet').innerHTML = `
+          <div style="padding:6rem 3rem;text-align:center">
+            <p style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:#7a756a;margin-bottom:1.5rem">Received</p>
+            <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.6rem;color:#1f2419;line-height:1.2">Thank you for your <em style="color:#4d5a40">intake</em>.</h1>
+            <p style="max-width:500px;margin:2rem auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#4d5a40;line-height:1.6">
+              Your form has been sent. We will be in touch shortly to schedule your consultation.
+            </p>
+          </div>`;
+        window.scrollTo(0,0);
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Submit Intake Form';
+      status.style.color = '#b85c4e';
+      status.textContent = 'Submission failed — please try again or email ' + RECIPIENT;
+      console.error(err);
+    }
+  });
+})();
+</script>
 
 <script>
 (function () {
